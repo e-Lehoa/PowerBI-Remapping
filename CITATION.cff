@@ -1,0 +1,8 @@
+title: Microsoft PowerShell
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: Microsoft
+    website: 'https://learn.microsoft.com/en-au/powershell/'
