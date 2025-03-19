@@ -5,7 +5,9 @@ With assistance from the Microsoft Support Team, the re-mapping process involves
 
 To be able to complete the remapping process successfully, a number of pre-requisites must and should be completed first. It is also recommended that a communications plan is developed and deployed to support staff across the organisation through the process, particularly where organisations have historically allowed users to create Workspaces or manage Capacities on their own rather than centrally. The pre-requisites listed below have been compiled from advice provided by the Microsoft Support Team, using references sourced from [Fabric Fundamentals](https://learn.microsoft.com/en-us/fabric/fundamentals/), [Power BI PowerShell Cmdlets](https://learn.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps), and [Fabric API](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP), and from experience.
 
+
 Microsoft Support Team - Awareness Points:
+
 Customers will lose all their data, and all gateways to connect to data will need to be removed and reinstalled.
 Microsoft Fabric Trial should end, and it is the customer responsibility to start a new trial in the new region.
 Microsoft Fabric might not be available in all regions. [Per Fabric region availability, Fabric available in Australia East and Australia Southeast](https://learn.microsoft.com/en-us/fabric/admin/region-availability)
@@ -20,7 +22,9 @@ In post-remapping, customer:
   4. Rebuilds reports and dashboards,
   5. Re-shares links to reports and dashboards, as required.
 
+
 Common Q&A:
+
 Q. May I pick specific hours and dates on which I want the remapping to occur?
   A. Yes and it's recommended. If you don't provide a date/time, the remapping can happen anytime within 2 or 3 working days after submitting the request form.
 Q. How long will it take to complete the process?
@@ -39,7 +43,9 @@ Q. Can I simply migrate my data myself?
 Q. How do I identify active reports?
   A. Using Feature usage and Adoption reports; using Power BI activity log to track user activities in Power BI, you can filter specific events like view report to check which reports are used in past one month; Metadata scanning overview is also a good tool to get basic information for all items in Power BI. 
 
+
 Internal Preparations
+
 1. Access the Feature Usage and Adoption Reports to gauge usage statistics and trends.
 2. Identify Power Users and Capacity/Workspace Administrators who should be contacted early in order to plan back-up requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the PBI-Audit.ps1 script.
 3. Edit and run PowerShell PBI-Audit.ps1 script to run back-up #1 of all assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
@@ -53,33 +59,36 @@ Internal Preparations
 7. Implement comms plan.
 8. Script bulk re-creation of Workspaces & assign Admins to relevant staff, groups, or teams.
 
+
 MS Process:
+
 1. Customer Global Admin completes request/acknowledgement form and sends back to Microsoft through support ticket. O365 Global Admin must complete the form and upload the form, for security confirmation purposes. If the customer Global Admin is not the Org's Support Engineer, the customer's Support Engineer's details must be included as a contact. This person is responsible for re-installing the Gateways.
 2. PBI back-end will validate information in request form and proceed with the re-mapping of the tenant on the desired date listed in request form.
 3. If information is not verified, the form along with instructions on what additional information or clarifications needed will be sent to the Support Engineer for the customer.
 4. Upon completion of the re-mapping, the Power BI back-end team will contact the Support Engineer and confirm that the work has been completed. Customer can verify that their tenant has been moved to the new geo-region by restarting their browser, clicking on the ? icon in the ribbon in Power BI, then clicking on About Power BI, and will be shown "Your data is stored in [name of data center]".
 5. Customer to formally confirm the tenant re-mapping is visible with a screenshot of the About Power BI dialog box.
 
+
 Internal Process - Post Re-mapping:
 - Establish Gateways
 - Check Admin Portal Configs: Change Workspace creation to only Admins
 - Manually create workspaces and assign Admins to test functions, processes, and connections.
-- 
-Cube-based Sources
+  
+Cube-based Sources:
 1. Reconnect Cubes
 2. Open pbix and update M Query/link to data
 3. Republish to new Workspace
 4. Check Service functionalities, including assignment of user access.
 5. Embed in SharePoint
    
-DW Semantic Models
+DW Semantic Models:
 1. Reconnect High Stakes Semantic Model
 2. Open pbix and update M Query/link to data, and check for any DirectQuery connections. If there are DQ connections, they need to be relinked Transform data > Data source settings.
 3. Republish to new Workspace
 4. Check Service functionalities, including assignment of user access.
 5. Embed in SharePoint.
    
-SharePoint Sources
+SharePoint Sources:
 1. Open pbix and update M Query/link to data
 2. Republish to new Workspace
 3. Check Service functionalities, including assignment of user access.
