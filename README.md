@@ -26,21 +26,37 @@ In post-remapping, customer:
 Common Q&A:
 
 Q. May I pick specific hours and dates on which I want the remapping to occur?
+
   A. Yes and it's recommended. If you don't provide a date/time, the remapping can happen anytime within 2 or 3 working days after submitting the request form.
+  
 Q. How long will it take to complete the process?
+
   A. If you ask for a specific date and time, and the PBI back teams (Ship room) have acknowledged it, it will take between 1-3 hours.
+  
 Q. Will this affect my O365 subscription?
+
   A. No, this will only affect the Power BI subscriptions.
+  
 Q. Will this apply to all my Power BI subscriptions or may I keep some in their original location?
+
   A. No, this will apply to all Power BI subscriptions associated with the tenant.
+  
 Q. Will I lose all my Apps, datasets, data models, reports, and dashboards?
+
   A. Yes.
+  
 Q. Will I lose all the personal and enterprise gateways I have created to connect to my various data sources?
+
   A. Yes. All gateways associated with Power BI, PowerApps, Flow, and Logic Apps will need to be renewed after the re-mapping has been completed.
+  
 Q. Can I simply migrate my data myself?
+
   A. Yes, this process requires users to back-up or download data themselves. The "PBIX Download" feature may be able to provide a partial solution by allowing the saving of reports and datasets to a .pbix file. This file may then be uploaded to Power BI Desktop or reloaded back into a new Power BI tenant.  
+  
   NOTE: Download of PBIX is only possible for the owner of the reports and datasets. If assets have been edited using Power BI Service or through Excel, they will not be downloadable and must be replicated using screenshots or re-created from scratch.
+  
 Q. How do I identify active reports?
+
   A. Using Feature usage and Adoption reports; using Power BI activity log to track user activities in Power BI, you can filter specific events like view report to check which reports are used in past one month; Metadata scanning overview is also a good tool to get basic information for all items in Power BI. 
 
 
