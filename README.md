@@ -1,12 +1,17 @@
 # PowerBI-Remapping
-Power BI script to complete the re-mapping of Power BI tenants from one location (e.g. Singapore) to another (e.g. Australia). This is not the 'migration' process as outlined at https://learn.microsoft.com/en-us/fabric/known-issues/known-issue-923-tenant-migrations-paused-january-2025.
+Power BI preparations with scripts to complete the re-mapping of Power BI tenants from one location (e.g. Singapore) to another (e.g. Australia). This is not the 'migration' process as outlined at https://learn.microsoft.com/en-us/fabric/known-issues/known-issue-923-tenant-migrations-paused-january-2025.
 
 With assistance from the Microsoft Support Team, the re-mapping process involves the removal of the old tenant and creation of a new tenant in the preferred region. Power BI Tenant, Capacity, and Workspace Administrators are then required to recreate their Power BI set-up according to the organisation's needs and 're-map' Power BI assets (workspaces, semantic models, reports, etc) into the new tenant. This re-mapping exercise provides organisations with an opportunity to start afresh by removing old assets in bulk, then selectively re-adding assets back, as required. It further provides an opportunity to reconfigure Power BI according to an updated or refreshed governance framework structured by domains and sub-domains with workspaces assigned accordingly for a better browsing experience in OneLake or Microsoft Purview (if connected to the Fabric tenant). 
 
-To be able to complete the remapping process successfully, a number of pre-requisites must and should be completed first. It is also recommended that a communications plan is developed and deployed to support staff across the organisation through the process, particularly where organisations have historically allowed users to create Workspaces or manage Capacities on their own rather than centrally. The pre-requisites listed below have been compiled from advice provided by the Microsoft Support Team, using references sourced from [Fabric Fundamentals](https://learn.microsoft.com/en-us/fabric/fundamentals/), [Power BI PowerShell Cmdlets](https://learn.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps), and [Fabric API](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP), and from experience.
+To be able to complete the remapping process successfully, a number of pre-requisites must and should be completed first. It is also recommended that a communications plan is developed and deployed to support staff across the organisation through the process, particularly where organisations have historically allowed users to create Workspaces or manage Capacities on their own rather than centrally. 
+
+The pre-requisites listed below have been compiled from experience, advice provided by the Microsoft Support Team, and using references sourced from: 
+- [Fabric Fundamentals](https://learn.microsoft.com/en-us/fabric/fundamentals/), 
+- [Power BI PowerShell Cmdlets](https://learn.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps), and 
+- [Fabric API](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP).
 
 
-Microsoft Support Team - Awareness Points:
+## Microsoft Support Team - Awareness Points:
 
 Customers will lose all their data, and all gateways to connect to data will need to be removed and reinstalled.
 Microsoft Fabric Trial should end, and it is the customer responsibility to start a new trial in the new region.
@@ -23,7 +28,7 @@ In post-remapping, customer:
   5. Re-shares links to reports and dashboards, as required.
 
 
-Common Q&A:
+### Common Q&A:
 
 Q. May I pick specific hours and dates on which I want the remapping to occur?
 
@@ -60,20 +65,27 @@ Q. How do I identify active reports?
   A. Using Feature usage and Adoption reports; using Power BI activity log to track user activities in Power BI, you can filter specific events like view report to check which reports are used in past one month; Metadata scanning overview is also a good tool to get basic information for all items in Power BI. 
 
 
-Internal Preparations
+## Internal Preparations
 
-1. Access the Feature Usage and Adoption Reports to gauge usage statistics and trends.
-2. Identify Power Users and Capacity/Workspace Administrators who should be contacted early in order to plan back-up requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the PBI-Audit.ps1 script.
-3. Edit and run PowerShell PBI-Audit.ps1 script to run back-up #1 of all assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
-4. Script Git [David's code reference here] to run back-up #2 of all scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
-5. Create communications plan with strategic points of communications, eg:
+1. To be able to complete the auditing and back-ups in this process, a user must firstly be added to Fabric/Power BI as a Fabric Administrator or Power Platform Administrator, see https://learn.microsoft.com/en-us/fabric/admin/microsoft-fabric-admin#power-platform-and-fabric-admin-roles. 
+2. Once the correct Admin roles have been provisioned, access the [Feature Usage and Adoption Reports](https://learn.microsoft.com/en-us/fabric/admin/feature-usage-adoption) to gauge usage statistics and trends.
+3. Identify 'Power Users' and Capacity/Workspace Administrators who should be contacted early, in order to plan back-up and export requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the PBI-Audit.ps1 script.
+4. Edit and run PowerShell PBI-Audit.ps1 script to run back-up #1 of all Power BI assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Organisations with large numbers of assets will take longer to run the export components of the scripts, particularly for large PBIX and audit report exports.
+     **NOTE:**
+   - PBIX files can only be exported if they have been created and published from Power BI Desktop.
+   - Reports created and edited in Power BI Service will not export automatically using PowerShell and cannot be saved using the Power BI Service *'Download this file'* feature. Those reports will need to be identified using a discrepancy analysis or a 'catch error' in PowerShell to inform owners that they will need to back-up (via screenshots or using the 'Export > PDF') and re-create those reports manually.
+   - Power BI Service reports created using the [Publish to Power BI from Microsoft Excel](https://learn.microsoft.com/en-us/power-bi/connect-data/service-publish-from-excel) cannot be exported using PowerShell nor the Power BI Service *'Download this file'* feature. The 'Publish to Power BI from Microsoft Excel' feature is being deprecated by Microsoft, so users should be encouraged to avoid using this feature.
+   - There may be other types of assets that cannot be backed-up or exported using PowerShell or GitHub, so users should be actively encouraged to take screenshots or use the Power BI Service export to PDF feature to help them rebuild (yes, from scratch!) within the re-mapped environment. Alternatively, use the re-mapping as an opportunity to work with users to update their Power BI assets to use supported Fabric/Power BI features.
+   - 
+6. Script Git [David's code reference here] to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
+7. Create communications plan with strategic points of communications, eg:
    - 3 months before re-mapping, send an individual/personalised preparation email;
    - 2 months before re-mapping, send video of process;
    - 1 month before re-mapping, confirm dates and process, particularly if there is a shutdown period or 'no more updates' period;
    - 1 week before re-mapping, send org-wide email stating that back-up process will start and confirm re-mapping downtime;
    - 1 day or week after re-mapping, send org-wide email confirming process completion and next steps to support users.  
-7. Implement comms plan.
-8. Script bulk re-creation of Workspaces & assign Admins to relevant staff, groups, or teams.
+8. Implement comms plan.
+9. Script bulk re-creation of Workspaces & assign Admins to relevant staff, groups, or teams.
 
 
 MS Process:
