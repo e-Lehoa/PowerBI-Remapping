@@ -70,23 +70,24 @@ Q. How do I identify active reports?
 
 1. To be able to complete the auditing and back-ups in this process, a user must firstly be added to Fabric/Power BI as a Fabric Administrator or Power Platform Administrator, see https://learn.microsoft.com/en-us/fabric/admin/microsoft-fabric-admin#power-platform-and-fabric-admin-roles. 
 2. Once the correct Admin roles have been provisioned, access the [Feature Usage and Adoption Reports](https://learn.microsoft.com/en-us/fabric/admin/feature-usage-adoption) to gauge usage statistics and trends.
-3. Identify 'Power Users' and Capacity/Workspace Administrators who should be contacted early, in order to plan back-up and export requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the PBI-Audit.ps1 script.
+3. Identify 'Power Users' and Capacity/Workspace Administrators who should be contacted early, in order to plan back-up and export requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the [PBI-Audit-Backup.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/PBI-Audit-Backup.ps1) script.
 4. Edit and run PowerShell PBI-Audit.ps1 script to run back-up #1 of all Power BI assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Organisations with large numbers of assets will take longer to run the export components of the scripts, particularly for large PBIX and audit report exports.
+   
      **NOTE:**
    - PBIX files can only be exported if they have been created and published from Power BI Desktop.
    - Reports created and edited in Power BI Service will not export automatically using PowerShell and cannot be saved using the Power BI Service *'Download this file'* feature. Those reports will need to be identified using a discrepancy analysis or a 'catch error' in PowerShell to inform owners that they will need to back-up (via screenshots or using the 'Export > PDF') and re-create those reports manually.
    - Power BI Service reports created using the [Publish to Power BI from Microsoft Excel](https://learn.microsoft.com/en-us/power-bi/connect-data/service-publish-from-excel) cannot be exported using PowerShell nor the Power BI Service *'Download this file'* feature. The 'Publish to Power BI from Microsoft Excel' feature is being deprecated by Microsoft, so users should be encouraged to avoid using this feature.
    - There may be other types of assets that cannot be backed-up or exported using PowerShell or GitHub, so users should be actively encouraged to take screenshots or use the Power BI Service export to PDF feature to help them rebuild (yes, from scratch!) within the re-mapped environment. Alternatively, use the re-mapping as an opportunity to work with users to update their Power BI assets to use supported Fabric/Power BI features.
-   - 
-6. Script Git [WIP David's code reference here] to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
-7. Create communications plan with strategic points of communications, eg:
+     
+5. Script Git **[WIP David's code reference here]** to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
+6. Create communications plan with strategic points of communications, eg:
    - 3 months before re-mapping, send an individual/personalised preparation email;
    - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simply the message.;
    - 1 month before re-mapping, confirm dates and process, particularly if there is a shutdown period or 'no more updates' period;
    - 1 week before re-mapping, send org-wide email stating that back-up process will start and confirm re-mapping downtime;
    - 1 day or week after re-mapping, send org-wide email/video confirming process completion and next steps to support users, e.g. [Power BI Migration Complete](https://youtu.be/EI7HGxVrGug?si=Rt2hfWI4eBI7ufSR).  
-8. Implement comms plan.
-9. Script bulk re-creation of Workspaces & assign Admins to relevant staff, groups, or teams.
+7. Implement comms plan.
+8. Script bulk re-creation of Workspaces & assign Admins to relevant staff, groups, or teams.
 
 
 ## Microsoft Support Team Process:
