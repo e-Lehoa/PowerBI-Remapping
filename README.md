@@ -7,8 +7,9 @@ To be able to complete the remapping process successfully, a number of pre-requi
 
 The pre-requisites listed below have been compiled from experience, advice provided by the Microsoft Support Team, and using references sourced from: 
 - [Fabric Fundamentals](https://learn.microsoft.com/en-us/fabric/fundamentals/), 
-- [Power BI PowerShell Cmdlets](https://learn.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps), and 
-- [Fabric API](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP).
+- [Power BI PowerShell Cmdlets](https://learn.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps), 
+- [Fabric API](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP), and
+- https://github.com/chris1642/Power-BI-Backup-Impact-Analysis-Governance-Solution.
 
 
 ## Microsoft Support Team - Awareness Points:
