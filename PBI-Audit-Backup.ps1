@@ -1,4 +1,10 @@
 ﻿## Set-up
+## NOTE: Some Folder structures will need to be replicated for these scripts to work.
+## Create the following folders in the path home (e.g. "..\OneDrive\Power BI Backups\") called:
+## Exports
+## Dataflow Exports
+## Datasets Exports
+
 ## Import Power BI if not installed yet
 Import-Module MicrosoftPowerBIMgmt
 
@@ -140,7 +146,6 @@ function Ensure-AdminAccess {
 }
 
 
-
 ## Add Exceptions, if required.
 #$except = @("workspace ID1", "workspace ID2)
 
@@ -160,7 +165,7 @@ foreach ($workspace in $workspaces) {
     Write-Progress -Activity "Processing Reports" -Status "Processing dataset $currentReports of $totalReports in $workspace.Name (n workspaces = $currentWorkspace of $totalWorkspaces)"
 
     # if($except -contains $workspace.Id){
-    # Write-Host "Skipping UniSQIC Workspace"
+    # Write-Host "Skipping exception Workspace"
     # continue
     # }
 
