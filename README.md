@@ -70,8 +70,8 @@ Q. How do I identify active reports?
 
 1. To be able to complete the auditing and back-ups in this process, a user must firstly be added to Fabric/Power BI as a Fabric Administrator or Power Platform Administrator, see https://learn.microsoft.com/en-us/fabric/admin/microsoft-fabric-admin#power-platform-and-fabric-admin-roles. 
 2. Once the correct Admin roles have been provisioned, access the [Feature Usage and Adoption Reports](https://learn.microsoft.com/en-us/fabric/admin/feature-usage-adoption) to gauge usage statistics and trends.
-3. Identify 'Power Users' and Capacity/Workspace Administrators who should be contacted early, in order to plan back-up and export requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the [PBI-Audit-Backup.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/PBI-Audit-Backup.ps1) script.
-4. Edit and run PowerShell PBI-Audit.ps1 script to run back-up #1 of all Power BI assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Organisations with large numbers of assets will take longer to run the export components of the scripts, particularly for large PBIX and audit report exports.
+3. Identify 'Power Users' and Capacity/Workspace Administrators who should be contacted early, in order to plan back-up and export requirements. Workspace Users can also be extracted using the PowerShell Cmdlet in the [PBI-Audit-Backup.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/PBI-Audit-Backup.ps1) script from lines 209-236. Alternatively, use the [PBI-GetUserLogs.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/PBI-GetUserLogs.ps1) script to extract all users' activities. A test run is included from lines 19-35.
+4. Edit and run PowerShell [PBI-Audit-Backup.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/PBI-Audit-Backup.ps1) script to run back-up #1 of all Power BI assets and data. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Organisations with large numbers of assets will take longer to run the export components of the scripts, particularly for large PBIX and audit report exports.
    
      **NOTE:**
    - PBIX files can only be exported if they have been created and published from Power BI Desktop.
@@ -82,7 +82,7 @@ Q. How do I identify active reports?
 5. Script Git **[WIP David's code reference here]** to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
 6. Create communications plan with strategic points of communications, eg:
    - 3 months before re-mapping, send an individual/personalised preparation email;
-   - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simply the message.;
+   - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simplify the message;
    - 1 month before re-mapping, confirm dates and process, particularly if there is a shutdown period or 'no more updates' period;
    - 1 week before re-mapping, send org-wide email stating that back-up process will start and confirm re-mapping downtime;
    - 1 day or week after re-mapping, send org-wide email/video confirming process completion and next steps to support users, e.g. [Power BI Migration Complete](https://youtu.be/EI7HGxVrGug?si=Rt2hfWI4eBI7ufSR).  
@@ -126,6 +126,7 @@ Q. How do I identify active reports?
 4. Embed in SharePoint.
 
 Test and re-instate Fabric Git back-ups & scripts
+
 Run PowerShell to create bulk Workspaces and assign Admins.
 
 
