@@ -1,8 +1,9 @@
-title: Microsoft PowerShell
-message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
-type: software
+message: "If you use this software, please cite it as below."
 authors:
-  - name: Microsoft
-    website: 'https://learn.microsoft.com/en-au/powershell/'
+- family-names: "Phan"
+  given-names" "Le Hoa"
+- family-names: "Harvey"
+  given-names" "David"
+title: "Power BI Re-mapping"
+date-released: 2025-03-11
+url: "https://github.com/e-Lehoa/PowerBI-Remapping"
