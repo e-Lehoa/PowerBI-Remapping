@@ -1,9 +1,10 @@
-message: "If you use this software, please cite it as below."
+cff-version: 1.2.0
+message: "If you use this repo, please cite it as below."
 authors:
 - family-names: "Phan"
-  given-names" "Le Hoa"
+  given-names: "Le Hoa"
 - family-names: "Harvey"
-  given-names" "David"
+  given-names: "David"
 title: "Power BI Re-mapping"
 date-released: 2025-03-11
 url: "https://github.com/e-Lehoa/PowerBI-Remapping"
