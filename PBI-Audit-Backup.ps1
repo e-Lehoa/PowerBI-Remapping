@@ -251,3 +251,30 @@ foreach ($workspace in $workspaces) {
 }
 
 
+#---------------------------------------------------
+# Personal Workspaces are not being assigned to complete exports. 
+# Try:
+## Test adding Admin rights to Personal Workspaces
+$token = Get-PowerBIAccessToken -AsString
+
+$headers = @{
+    "Authorization" = "Bearer $token"
+    "Content-Type"  = "application/json"
+}
+
+foreach ($workspace in $workspaces) {
+    if ($workspace.Type -eq "PersonalGroup") {
+        $url = "https://api.powerbi.com/v1.0/myorg/groups/$($workspace.Id)/users"
+        $body = @{
+            "identifier" = $currentUser
+            "groupUserAccessRight" = "Admin"
+            "principalType" = "User"
+        } | ConvertTo-Json
+
+        Invoke-RestMethod -Method Post -Uri $url -Headers $headers -Body $body
+    }
+}
+
+
+
+
