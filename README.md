@@ -82,7 +82,7 @@ Q. How do I identify active reports?
 5. If PBIX back-ups have been completed progressively and users are still creating new reports, run the [03-Get-Report-Discrepancy.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/03-Get-Report-Discrepancy.ps1) to identify the new reports that need to be exported. We did this because we didn't have a lock-down period in which the organisation were requested to not make further changes. We didn't have a lock-down period because we deemed it too onerous/disruptive on usual business.
 6. Script Git https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/GitHub_Integration/README.md to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
 7. Create communications plan with strategic points of communications, eg:
-   - 3 months before re-mapping, send an individual/personalised preparation email;
+   - 3 months before re-mapping, send an individual/personalised preparation email. In this email, we sent staff a personalised list of all their workspaces and assets where they are listed as an Admin or Contributor. We did this to ensure staff hadn't forgotten about historic workspaces and assets created.;
    - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simplify the message;
    - 1 month before re-mapping, confirm dates and process, particularly if there is a shutdown period or 'no more updates' period;
    - 1 week before re-mapping, send org-wide email stating that back-up process will start and confirm re-mapping downtime;
@@ -128,7 +128,7 @@ Q. How do I identify active reports?
 
 Test and re-instate Fabric Git back-ups & scripts
 
-Run PowerShell to create bulk Workspaces and assign Admins.
+Run PowerShell to create bulk Workspaces and assign Admins [05-Workspace-Admin-setUp.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/05-Workspace-Admin-setUp.ps1).
 
 
 
