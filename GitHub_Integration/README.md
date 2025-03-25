@@ -6,7 +6,7 @@ https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integ
 https://learn.microsoft.com/en-us/fabric/cicd/git-integration/git-get-started?tabs=github%2CGitHub%2Ccommit-to-git
 
 Background...
-This document provides some suggestions and personally adopted rules that were noted during a recent Premium Capacity Remapping / Region change. Use it to enhance your own planning, but know that it doesn't fit everyone's needs.  It mentions 
+This document provides some suggestions and personally adopted rules that were noted during a recent Premium Capacity Remapping / Region change. Use it to enhance your own planning, but know that it doesn't fit everyone's needs.
 
 Extra rules when using GitHub Integration for backup & recovery...
 1. Don't leave workspace GitHub connections until the last days. You want to start weeks in advance and allow for up to 2 hours for each workspace to be connected and synced. This is especially true for workspaces with dozens of objects or workspaces that include various unsupported object types.
