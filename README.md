@@ -27,6 +27,7 @@ The pre-requisites listed below have been compiled from experience, advice provi
     3. provisions access rights to users in capacities and workspaces,
     4. Rebuilds reports and dashboards,
     5. Re-shares links to reports and dashboards, as required.
+	6. Advises users to sign out of Power BI and clear browser cache.
 
 
 ### Common Q&A:
@@ -80,7 +81,7 @@ Q. How do I identify active reports?
    - There may be other types of assets that cannot be backed-up or exported using PowerShell or GitHub, so users should be actively encouraged to take screenshots or use the Power BI Service export to PDF feature to help them rebuild (yes, from scratch!) within the re-mapped environment. Alternatively, use the re-mapping as an opportunity to work with users to update their Power BI assets to use supported Fabric/Power BI features.
      
 5. If PBIX back-ups have been completed progressively and users are still creating new reports, run the [03-Get-Report-Discrepancy.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/03-Get-Report-Discrepancy.ps1) to identify the new reports that need to be exported. We did this because we didn't have a lock-down period in which the organisation were requested to not make further changes. We didn't have a lock-down period because we deemed it too onerous/disruptive on usual business.
-6. Script Git https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/GitHub_Integration/README.md to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping.
+6. Script Git https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/GitHub_Integration/README.md to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Using GitHub Integration can be a good way to backup some objects that are otherwise not downloadable, such as reports created/copied inside of Service.
 7. Create communications plan with strategic points of communications, eg:
    - 3 months before re-mapping, send an individual/personalised preparation email. In this email, we sent staff a personalised list of all their workspaces and assets where they are listed as an Admin or Contributor. We did this to ensure staff hadn't forgotten about historic workspaces and assets created.;
    - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simplify the message;
@@ -126,10 +127,11 @@ Q. How do I identify active reports?
 3. Check Service functionalities, including assignment of user access.
 4. Embed in SharePoint.
 
+### Other:
 Test and re-instate Fabric Git back-ups & scripts
 
 Run PowerShell to create bulk Workspaces and assign Admins [05-Workspace-Admin-setUp.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/05-Workspace-Admin-setUp.ps1).
 
-
+When Microsoft advises for users to sign out of Power BI, this doesn't only apply to the browser, but also is a must for desktop tools such as Power BI Report Builder (Paginated Report UI). If you don't sign out the "Add Power BI Semantic Model connection" applet will only list models from your old environment. Meaning, for example, workspaces will appear empty if they didn't exist in the old environment with the same name.
 
 
