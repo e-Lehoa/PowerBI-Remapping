@@ -1,5 +1,8 @@
-# PowerBI-Remapping
+# PowerBI Remapping
 Power BI preparations with scripts to complete the re-mapping of Power BI tenants from one location (e.g. Singapore) to another (e.g. Australia). This is not the 'migration' process as outlined at https://learn.microsoft.com/en-us/fabric/known-issues/known-issue-923-tenant-migrations-paused-january-2025.
+
+**Update to include new Microsoft Remapping reference**
+Microsoft have now published information about remapping tenants at https://learn.microsoft.com/en-us/power-bi/support/service-admin-region-move
 
 With assistance from the Microsoft Support Team, the re-mapping process involves the removal of the old tenant and creation of a new tenant in the preferred region. Power BI Tenant, Capacity, and Workspace Administrators are then required to recreate their Power BI set-up according to the organisation's needs and 're-map' Power BI assets (workspaces, semantic models, reports, etc) into the new tenant. This re-mapping exercise provides organisations with an opportunity to start afresh by removing old assets in bulk, then selectively re-adding assets back, as required. It further provides an opportunity to reconfigure Power BI according to an updated or refreshed governance framework structured by domains and sub-domains with workspaces assigned accordingly for a better browsing experience in OneLake or Microsoft Purview (if connected to the Fabric tenant). 
 
@@ -83,7 +86,7 @@ Q. How do I identify active reports?
 5. If PBIX back-ups have been completed progressively and users are still creating new reports, run the [03-Get-Report-Discrepancy.ps1](https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/03-Get-Report-Discrepancy.ps1) to identify the new reports that need to be exported. We did this because we didn't have a lock-down period in which the organisation were requested to not make further changes. We didn't have a lock-down period because we deemed it too onerous/disruptive on usual business.
 6. Script Git https://github.com/e-Lehoa/PowerBI-Remapping/blob/main/GitHub_Integration/README.md to run back-up #2 of all Fabric scripts and assets. Make sure to test the script end-to-end before completing a final run and before completing the pre-requisite deletions for the remapping. Using GitHub Integration can be a good way to backup some objects that are otherwise not downloadable, such as reports created/copied inside of Service.
 7. Create communications plan with strategic points of communications, eg:
-   - 3 months before re-mapping, send an individual/personalised preparation email. In this email, we sent staff a personalised list of all their workspaces and assets where they are listed as an Admin or Contributor. We did this to ensure staff hadn't forgotten about historic workspaces and assets created.;
+   - 3 months before re-mapping, send an individual/personalised preparation email. In this email, we sent staff a personalised list of all their workspaces and assets where they are listed as an Admin or Contributor. We did this to ensure staff hadn't forgotten about historic workspaces and assets created;
    - 2 months before re-mapping, send video of process, e.g. [Power BI Data Migration](https://youtu.be/-LDiRyy0Ckg?si=uZ1MpAZXo-GTf3n8) **Note:** We deliberately called it a 'migration' with our users to simplify the message;
    - 1 month before re-mapping, confirm dates and process, particularly if there is a shutdown period or 'no more updates' period;
    - 1 week before re-mapping, send org-wide email stating that back-up process will start and confirm re-mapping downtime;
